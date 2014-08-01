@@ -11,8 +11,9 @@ class EnrollmentsController < ApplicationController
   def new
   end
 
+
   def create
-    @enrollment = Enrollment.new
+     @enrollment = Enrollment.new
     @enrollment.course_id = params[:course_id]
     @enrollment.student_id = params[:student_id]
 
@@ -20,9 +21,8 @@ class EnrollmentsController < ApplicationController
       redirect_to "/enrollments/#{ @enrollment.id }"
     else
       render 'new'
-    end
   end
-
+  end
   def edit
     @enrollment = Enrollment.find_by(id: params[:id])
   end
